@@ -6,9 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CleanArchitectureBase.Application.GetProduct.Queries
+namespace CleanArchitectureBase.Application.ProductCQRS.Queries.GetProductById
 {
-    public class GetProductsQuery : IRequest<IEnumerable<Product>>
+    public class GetProductByIdQuery : IRequest<Product>
     {
+        public int Id { get; set; }
     }
 }

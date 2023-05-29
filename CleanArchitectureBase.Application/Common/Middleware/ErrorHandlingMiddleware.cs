@@ -33,6 +33,7 @@ namespace CleanArchitectureBase.Application.Common.Middleware
             }catch(Exception ex)
             {
                 await HandleExceptionAsync(context, ex);
+                //throw new Exception(ex.Message);
             }
         }
 

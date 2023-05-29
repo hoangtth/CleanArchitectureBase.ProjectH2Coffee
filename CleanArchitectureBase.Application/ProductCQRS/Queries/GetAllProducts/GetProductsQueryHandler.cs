@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CleanArchitectureBase.Application.GetProduct.Queries
+namespace CleanArchitectureBase.Application.ProductCQRS.Queries.GetAllProducts
 {
-    public class GetProductQueryHandler : BaseCommandHandler<GetProductsQuery, IEnumerable<Product>>
+    public class GetProductsQueryHandler : BaseCommandHandler<GetProductsQuery, IEnumerable<Product>>
     {
         private readonly IGenericRepository<Product> _productRepository;
-        public GetProductQueryHandler(IMapper mapper,IService service, IGenericRepository<Product> productRepository) : base(mapper, service)
+        public GetProductsQueryHandler(IMapper mapper, IService service, IGenericRepository<Product> productRepository) : base(mapper, service)
         {
             _productRepository = productRepository;
         }

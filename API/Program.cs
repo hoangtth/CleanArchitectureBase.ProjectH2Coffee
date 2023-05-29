@@ -25,7 +25,7 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo()
     {
-        Title = "API App F88",
+        Title = "API Web H2Coffee",
         Version = "v1"
     });
 
