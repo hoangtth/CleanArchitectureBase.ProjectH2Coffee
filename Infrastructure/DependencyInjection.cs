@@ -17,6 +17,7 @@ namespace Infrastructure
         public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddTransient<IProductRepository, ProductRepository>(); 
             //var connectionString = configuration.GetConnectionString("SqlConnection");
             services.AddDbContext<MyDbContext>();
         }

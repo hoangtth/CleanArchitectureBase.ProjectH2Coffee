@@ -12,13 +12,16 @@ namespace CleanArchitectureBase.Application.ProductCQRS.Queries.GetAllProducts
     public class GetProductsQueryHandler : BaseCommandHandler<GetProductsQuery, IEnumerable<Product>>
     {
         private readonly IGenericRepository<Product> _productRepository;
-        public GetProductsQueryHandler(IMapper mapper, IService service, IGenericRepository<Product> productRepository) : base(mapper, service)
+        private readonly IProductRepository _productRepository2;
+
+        public GetProductsQueryHandler(IMapper mapper, IService service, IGenericRepository<Product> productRepository, IProductRepository productRepository2) : base(mapper, service)
         {
             _productRepository = productRepository;
+            _productRepository2 = productRepository2;
         }
         public override async Task<IEnumerable<Product>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
         {
-            var rs = await _productRepository.GetAll();
+            var rs = await _productRepository2.GetAllProducts();
             return rs;
         }
     }

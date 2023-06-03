@@ -27,8 +27,6 @@ namespace CleanArchitectureBase.Domain.Entities
         [Required]
         public decimal UnitPrice { get; set; }
 
-     
-
         [Required]
         public bool IsSignature { get; set; }
 
@@ -36,6 +34,8 @@ namespace CleanArchitectureBase.Domain.Entities
 
         [Required]
         public EStatus Status { get; set; }
+
+        public string ImageUrl { get; set; } = string.Empty;
 
         public DateTime CreatedDate { get; set; } = DateTime.Now;
 
