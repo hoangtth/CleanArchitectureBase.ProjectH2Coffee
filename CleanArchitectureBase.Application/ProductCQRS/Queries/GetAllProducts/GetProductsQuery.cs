@@ -1,4 +1,5 @@
-﻿using CleanArchitectureBase.Domain.Entities;
+﻿using CleanArchitectureBase.Application.Common.Models;
+using CleanArchitectureBase.Domain.Entities;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CleanArchitectureBase.Application.ProductCQRS.Queries.GetAllProducts
 {
-    public class GetProductsQuery : IRequest<IEnumerable<Product>>
+    public class GetProductsQuery : PagingQueryModel , IRequest<PaginatedList<Product>>
     {
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CleanArchitectureBase.Application.Common.Interfaces;
+using CleanArchitectureBase.Application.Common.Models;
 using CleanArchitectureBase.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CleanArchitectureBase.Application.ProductCQRS.Queries.GetAllProducts
 {
-    public class GetProductsQueryHandler : BaseCommandHandler<GetProductsQuery, IEnumerable<Product>>
+    public class GetProductsQueryHandler : BaseCommandHandler<GetProductsQuery, PaginatedList<Product>>
     {
         private readonly IGenericRepository<Product> _productRepository;
         private readonly IProductRepository _productRepository2;
@@ -19,9 +20,11 @@ namespace CleanArchitectureBase.Application.ProductCQRS.Queries.GetAllProducts
             _productRepository = productRepository;
             _productRepository2 = productRepository2;
         }
-        public override async Task<IEnumerable<Product>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
+        public override async Task<PaginatedList<Product>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
         {
-            var rs = await _productRepository2.GetAllProducts();
+            var rs = await _productRepository2.GetAllProducts(
+                offset: request.Offset,
+                limit: request.Limit);
             return rs;
         }
     }

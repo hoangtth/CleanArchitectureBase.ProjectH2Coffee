@@ -1,4 +1,7 @@
 ﻿
+using CleanArchitectureBase.Application.Common.Models;
+using CleanArchitectureBase.Application.ProductCQRS.Command.DeleteProduct;
+using CleanArchitectureBase.Application.ProductCQRS.Command.UpdateProduct;
 using CleanArchitectureBase.Application.ProductCQRS.Queries.GetAllProducts;
 using CleanArchitectureBase.Application.ProductCQRS.Queries.GetProductById;
 using CleanArchitectureBase.Domain.Entities;
@@ -15,7 +18,7 @@ namespace API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("GetProducts")]
-        public async Task<IEnumerable<Product>> GetProductsAsync() => await Mediator.Send(new GetProductsQuery());
+        public async Task<PaginatedList<Product>> GetProductsAsync([FromQuery]GetProductsQuery query) => await Mediator.Send(query);
 
         /// <summary>
         /// Lấy product theo Id
@@ -27,5 +30,22 @@ namespace API.Controllers
         {
             Id = id
         });
+
+
+        /// <summary>
+        /// Xóa product từ Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete("DeleteProduct/{id}")]
+        public async Task<bool> DeleteProductAsync(int id) => await Mediator.Send(new DeleteProductById()
+        {
+            Id = id
+        });
+
+
+
+        [HttpPost("UpdateProduct")]
+        public async Task<bool> UpdateProduct(UpdateProductCommand command) => await Mediator.Send(command);
     }
 }
