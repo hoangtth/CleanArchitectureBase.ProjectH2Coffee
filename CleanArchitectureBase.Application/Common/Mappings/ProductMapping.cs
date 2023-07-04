@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using CleanArchitectureBase.Application.Common.Models;
 using CleanArchitectureBase.Application.ProductCQRS.Command.CreateProduct;
 using CleanArchitectureBase.Application.ProductCQRS.Command.UpdateProduct;
+using CleanArchitectureBase.Application.ProductCQRS.Queries.GetAllProducts;
 using CleanArchitectureBase.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -16,6 +18,9 @@ namespace CleanArchitectureBase.Application.Common.Mappings
         {
             CreateMap<UpdateProductCommand, Product>();
             CreateMap<CreateProductCommand, Product>();
+            CreateMap<Product,GetAllProductResponse>()
+                .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category.Name));
+            CreateMap<PaginatedList<Product>, PaginatedList<GetAllProductResponse>>();
         }
     }
 }

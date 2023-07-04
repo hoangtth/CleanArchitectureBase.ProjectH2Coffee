@@ -19,7 +19,7 @@ namespace API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("GetProducts")]
-        public async Task<PaginatedList<Product>> GetProductsAsync([FromQuery]GetProductsQuery query) => await Mediator.Send(query);
+        public async Task<PaginatedList<GetAllProductResponse>> GetProductsAsync([FromQuery]GetProductsQuery query) => await Mediator.Send(query);
 
         /// <summary>
         /// Lấy product theo Id

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CleanArchitectureBase.Application.ProductCQRS.Queries.GetAllProducts
 {
-    public class GetProductsQuery : PagingQueryModel , IRequest<PaginatedList<Product>>
+    public class GetProductsQuery : PagingQueryModel , IRequest<PaginatedList<GetAllProductResponse>>
     {
     }
 }
