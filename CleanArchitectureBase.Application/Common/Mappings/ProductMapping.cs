@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CleanArchitectureBase.Application.ProductCQRS.Command.CreateProduct;
 using CleanArchitectureBase.Application.ProductCQRS.Command.UpdateProduct;
 using CleanArchitectureBase.Domain.Entities;
 using System;
@@ -14,6 +15,7 @@ namespace CleanArchitectureBase.Application.Common.Mappings
         public ProductMapping()
         {
             CreateMap<UpdateProductCommand, Product>();
+            CreateMap<CreateProductCommand, Product>();
         }
     }
 }

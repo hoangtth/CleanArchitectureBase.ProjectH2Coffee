@@ -13,7 +13,7 @@ namespace CleanArchitectureBase.Application.Common.Exceptions
 
         public ECode Code { get; private set; }
 
-        public HttpStatusException(string msg, ECode code, int statusCode = 501)
+        public HttpStatusException(string msg, ECode code, int statusCode = 501) : base(msg)
         {
             StatusCode = statusCode;
             Code = code;

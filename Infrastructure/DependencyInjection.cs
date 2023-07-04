@@ -18,6 +18,7 @@ namespace Infrastructure
         {
             services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddTransient<IProductRepository, ProductRepository>(); 
+            services.AddTransient<ICategoryRepository, CategoryRepository>(); 
             //var connectionString = configuration.GetConnectionString("SqlConnection");
             services.AddDbContext<MyDbContext>();
         }
