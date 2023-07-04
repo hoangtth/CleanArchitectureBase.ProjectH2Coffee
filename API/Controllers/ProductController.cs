@@ -1,5 +1,6 @@
 ﻿
 using CleanArchitectureBase.Application.Common.Models;
+using CleanArchitectureBase.Application.ProductCQRS.Command.CreateProduct;
 using CleanArchitectureBase.Application.ProductCQRS.Command.DeleteProduct;
 using CleanArchitectureBase.Application.ProductCQRS.Command.UpdateProduct;
 using CleanArchitectureBase.Application.ProductCQRS.Queries.GetAllProducts;
@@ -45,7 +46,20 @@ namespace API.Controllers
 
 
 
+        /// <summary>
+        /// Cập nhật sản phẩm
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
         [HttpPost("UpdateProduct")]
         public async Task<bool> UpdateProduct(UpdateProductCommand command) => await Mediator.Send(command);
+
+        /// <summary>
+        /// Tạo sản phẩm
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("CreateProduct")]
+        public async Task<bool> CreateProduct([FromBody] CreateProductCommand command) => await Mediator.Send(command);
     }
 }

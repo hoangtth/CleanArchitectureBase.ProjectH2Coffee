@@ -21,6 +21,8 @@ namespace Infrastructure.Repository
         public async Task Add(T entity)
         {
             await _context.Set<T>().AddAsync(entity);
+
+            await _context.SaveChangesAsync();
         }
 
         public async Task AddRange(IEnumerable<T> entities)
