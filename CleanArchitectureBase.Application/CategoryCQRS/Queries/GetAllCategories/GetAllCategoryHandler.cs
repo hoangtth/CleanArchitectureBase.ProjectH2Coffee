@@ -19,6 +19,7 @@ namespace CleanArchitectureBase.Application.CategoryCQRS.Queries.GetAllCategorie
         public override async Task<IEnumerable<Category>> Handle(GetAllCategoryQuery request, CancellationToken cancellationToken)
         {
             var rs = await _categoryRepository.GetAll();
+            rs = rs.Where(x => x.Status == Domain.Helpers.EStatus.Active);
             return rs;
         }
     }

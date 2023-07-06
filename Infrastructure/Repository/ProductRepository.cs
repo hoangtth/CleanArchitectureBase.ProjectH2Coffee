@@ -27,7 +27,7 @@ namespace Infrastructure.Repository
 
         public async Task<PaginatedList<Product>> GetAllProducts(int offset, int limit)
         {
-            var result = _context.Products.Include(x => x.Category);
+            var result = _context.Products.Include(x => x.Category).Where(x => x.Status == CleanArchitectureBase.Domain.Helpers.EStatus.Active);
             return new PaginatedList<Product>
             {
                 Total = await result.CountAsync(),
