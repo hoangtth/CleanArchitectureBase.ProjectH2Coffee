@@ -21,6 +21,7 @@ namespace Infrastructure
             services.AddTransient<ICategoryRepository, CategoryRepository>(); 
             services.AddTransient<IUserRepository, UserRepository>(); 
             services.AddTransient<IRoleRepository, RoleRepository>(); 
+            services.AddTransient<IPermissionRepository, PermissionRepository>(); 
             //var connectionString = configuration.GetConnectionString("SqlConnection");
             services.AddDbContext<MyDbContext>();
         }
