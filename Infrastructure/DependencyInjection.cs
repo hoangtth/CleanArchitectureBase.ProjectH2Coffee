@@ -20,6 +20,7 @@ namespace Infrastructure
             services.AddTransient<IProductRepository, ProductRepository>(); 
             services.AddTransient<ICategoryRepository, CategoryRepository>(); 
             services.AddTransient<IUserRepository, UserRepository>(); 
+            services.AddTransient<IRoleRepository, RoleRepository>(); 
             //var connectionString = configuration.GetConnectionString("SqlConnection");
             services.AddDbContext<MyDbContext>();
         }

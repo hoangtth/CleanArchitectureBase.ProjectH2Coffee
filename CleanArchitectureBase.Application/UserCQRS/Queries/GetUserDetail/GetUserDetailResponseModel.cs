@@ -1,16 +1,16 @@
-﻿using CleanArchitectureBase.Domain.Helpers;
+﻿using CleanArchitectureBase.Application.UserCQRS.Queries.GetListUsers;
+using CleanArchitectureBase.Domain.Entities;
+using CleanArchitectureBase.Domain.Helpers;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CleanArchitectureBase.Domain.Entities
+namespace CleanArchitectureBase.Application.UserCQRS.Queries.GetUserDetail
 {
-    public class User
+    public class GetUserDetailResponseModel
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         public string Username { get; set; }
@@ -25,8 +25,6 @@ namespace CleanArchitectureBase.Domain.Entities
 
         public EStatus Status { get; set; }
 
-        public int RoleId { get; set; }
-
-        public Role Role { get; set; }
+        public RoleDto Role { get; set; }
     }
 }

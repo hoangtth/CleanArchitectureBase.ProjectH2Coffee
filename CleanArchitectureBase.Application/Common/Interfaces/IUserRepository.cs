@@ -14,5 +14,11 @@ namespace CleanArchitectureBase.Application.Common.Interfaces
         Task<PaginatedList<User>> GetAllUser(int offset,int limit);
 
         Task UpdateStatusUser(User user);
+
+        Task<User> GetUserDetail(int id);
+
+        Task<bool> CheckUsernameExist(string username);
+
+        Task<string> Login(string username,string password);
     }
 }

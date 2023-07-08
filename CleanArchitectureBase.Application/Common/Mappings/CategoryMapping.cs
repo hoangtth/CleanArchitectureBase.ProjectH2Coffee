@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CleanArchitectureBase.Application.CategoryCQRS.Commands.CreateCategory;
 using CleanArchitectureBase.Application.CategoryCQRS.Commands.UpdateCategory;
 using CleanArchitectureBase.Domain.Entities;
 using System;
@@ -14,6 +15,7 @@ namespace CleanArchitectureBase.Application.Common.Mappings
         public CategoryMapping()
         {
             CreateMap<UpdateCategoryCommand, Category>();
+            CreateMap<CreateCategoryCommand,Category>();
         }
     }
 }

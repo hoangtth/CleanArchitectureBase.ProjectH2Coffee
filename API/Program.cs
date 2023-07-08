@@ -50,7 +50,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddSwaggerGen();
-builder.Services.AddApplication();
+builder.Services.AddApplication(builder.Configuration);
 builder.Services.AddSingleton(builder.Configuration);
 builder.Services.AddInfrastructure(builder.Configuration);
 var app = builder.Build();

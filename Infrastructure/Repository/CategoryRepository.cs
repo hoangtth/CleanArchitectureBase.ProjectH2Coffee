@@ -1,4 +1,5 @@
-﻿using CleanArchitectureBase.Application.CategoryCQRS.Commands.UpdateCategory;
+﻿using CleanArchitectureBase.Application.CategoryCQRS.Commands.CreateCategory;
+using CleanArchitectureBase.Application.CategoryCQRS.Commands.UpdateCategory;
 using CleanArchitectureBase.Application.CategoryCQRS.Commands.UpdateStatus;
 using CleanArchitectureBase.Application.Common.Interfaces;
 using CleanArchitectureBase.Domain.Entities;
@@ -17,6 +18,13 @@ namespace Infrastructure.Repository
         public CategoryRepository(MyDbContext context)
         {
             _context = context;
+        }
+
+        public async Task<bool> CreateCategory(Category category)
+        {
+            _context.Categories.Add(category);
+            await _context.SaveChangesAsync();
+            return true;
         }
 
         public async Task<bool> UpdateCategory(Category category)

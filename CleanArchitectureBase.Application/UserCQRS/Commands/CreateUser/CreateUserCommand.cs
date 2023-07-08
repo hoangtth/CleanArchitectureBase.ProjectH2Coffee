@@ -1,18 +1,15 @@
 ﻿using CleanArchitectureBase.Domain.Helpers;
+using MediatR;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CleanArchitectureBase.Domain.Entities
+namespace CleanArchitectureBase.Application.UserCQRS.Commands.CreateUser
 {
-    public class User
+    public class CreateUserCommand : IRequest<bool>
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
         public string Username { get; set; }
 
         public string Password { get; set; }
@@ -22,11 +19,5 @@ namespace CleanArchitectureBase.Domain.Entities
         public string LastName { get; set; }
 
         public string City { get; set; }
-
-        public EStatus Status { get; set; }
-
-        public int RoleId { get; set; }
-
-        public Role Role { get; set; }
     }
 }

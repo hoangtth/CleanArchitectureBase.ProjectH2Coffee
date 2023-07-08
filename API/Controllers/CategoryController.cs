@@ -1,4 +1,5 @@
-﻿using CleanArchitectureBase.Application.CategoryCQRS.Commands.UpdateCategory;
+﻿using CleanArchitectureBase.Application.CategoryCQRS.Commands.CreateCategory;
+using CleanArchitectureBase.Application.CategoryCQRS.Commands.UpdateCategory;
 using CleanArchitectureBase.Application.CategoryCQRS.Commands.UpdateStatus;
 using CleanArchitectureBase.Application.CategoryCQRS.Queries.GetAllCategories;
 using CleanArchitectureBase.Domain.Entities;
@@ -31,5 +32,8 @@ namespace API.Controllers
         /// <returns></returns>
         [HttpPatch("UpdateCategory")]
         public async Task<bool> UpdateCategory(UpdateCategoryCommand command) => await Mediator.Send(command);
+
+        [HttpPost("CreateCategory")]
+        public async Task<bool> CreateCategory([FromBody]CreateCategoryCommand command) => await Mediator.Send(command);
     }
 }

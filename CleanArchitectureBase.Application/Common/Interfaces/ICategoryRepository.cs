@@ -1,4 +1,5 @@
-﻿using CleanArchitectureBase.Application.CategoryCQRS.Commands.UpdateCategory;
+﻿using CleanArchitectureBase.Application.CategoryCQRS.Commands.CreateCategory;
+using CleanArchitectureBase.Application.CategoryCQRS.Commands.UpdateCategory;
 using CleanArchitectureBase.Application.CategoryCQRS.Commands.UpdateStatus;
 using CleanArchitectureBase.Domain.Entities;
 using System;
@@ -14,5 +15,7 @@ namespace CleanArchitectureBase.Application.Common.Interfaces
         Task<bool> UpdateStatusCategory(UpdateStatusCategoryCommand command, Category category);
 
         Task<bool> UpdateCategory(Category category);
+
+        Task<bool> CreateCategory(Category category);
     }
 }
