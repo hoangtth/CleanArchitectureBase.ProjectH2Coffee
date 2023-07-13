@@ -23,6 +23,12 @@ namespace CleanArchitectureBase.Domain.Entities
 
         public string City { get; set; }
 
+        public DateTime StartDate { get; set; } = DateTime.Now;
+
+        public string? Phone { get; set; }
+
+        public DateTime? DateOfBirth { get; set; }
+
         public EStatus Status { get; set; }
 
         public int RoleId { get; set; }
