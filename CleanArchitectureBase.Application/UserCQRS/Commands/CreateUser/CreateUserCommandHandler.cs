@@ -33,7 +33,7 @@ namespace CleanArchitectureBase.Application.UserCQRS.Commands.CreateUser
 
             var user = _mapper.Map<User>(request);
             user.Status = Domain.Helpers.EStatus.Active;
-            var roleId = await _roleRepository.GetRoleIdByName("Member");
+            var roleId = await _roleRepository.GetRoleIdByName("Employee");
             user.RoleId = roleId;
 
             await _userRepository.Add(user);
