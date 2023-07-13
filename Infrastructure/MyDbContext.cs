@@ -34,5 +34,9 @@ namespace Infrastructure
         public virtual DbSet<Role> Roles { get; set; }
 
         public virtual DbSet<Permission> Permissions { get; set; }
+
+        public virtual DbSet<Order> Orders { get; set; }
+
+        public virtual DbSet<OrderDetails> OrderDetails { get; set; }
     }
 }

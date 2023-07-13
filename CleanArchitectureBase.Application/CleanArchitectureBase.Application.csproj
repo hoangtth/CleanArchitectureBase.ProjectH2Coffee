@@ -22,4 +22,8 @@
     <ProjectReference Include="..\CleanArchitectureBase.Domain\CleanArchitectureBase.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="OrderCQRS\Queries\" />
+  </ItemGroup>
+
 </Project>

@@ -56,7 +56,6 @@ namespace CleanArchitectureBase.Domain.Helpers
 
         public static DateTime GetFromDateOnly(this DateOnly? date) =>
         new(date.Value.Year, date.Value.Month, date.Value.Day, 0, 0, 0);
-
         public static DateTime GetEndOfTheDay(this DateTime date) =>
             new(date.Year, date.Month, date.Day, 23, 59, 59);
 
