@@ -22,6 +22,12 @@ namespace CleanArchitectureBase.Application.UserCQRS.Queries.GetListUsers
 
         public string City { get; set; }
 
+        public int StartDate { get; set; }
+
+        public string? Phone { get; set; }
+
+        public int DateOfBirth { get; set; }
+
         public RoleDto Role { get; set; }
     }
 

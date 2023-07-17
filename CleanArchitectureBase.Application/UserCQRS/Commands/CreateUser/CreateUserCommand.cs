@@ -19,5 +19,9 @@ namespace CleanArchitectureBase.Application.UserCQRS.Commands.CreateUser
         public string LastName { get; set; }
 
         public string City { get; set; }
+
+        public string? Phone { get; set; }
+
+        public DateTime? DateOfBirth { get; set; }
     }
 }
