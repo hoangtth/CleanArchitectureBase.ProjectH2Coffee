@@ -2,6 +2,7 @@
 using CleanArchitectureBase.Application.UserCQRS.Commands.CreateUser;
 using CleanArchitectureBase.Application.UserCQRS.Commands.DeactiveUser;
 using CleanArchitectureBase.Application.UserCQRS.Queries.GetListUsers;
+using CleanArchitectureBase.Application.UserCQRS.Queries.GetRoleByToken;
 using CleanArchitectureBase.Application.UserCQRS.Queries.GetUserDetail;
 using CleanArchitectureBase.Application.UserCQRS.Queries.LoginQuery;
 using Microsoft.AspNetCore.Mvc;
@@ -25,5 +26,8 @@ namespace API.Controllers
 
         [HttpGet("Login")]
         public async Task<LoginQueryResponseModel> Login([FromQuery] LoginQuery query ) => await Mediator.Send(query);
+
+        [HttpGet("GetRoleByToken")]
+        public async Task<GetRoleByTokenResponseModel> GetRoleByToken() => await Mediator.Send(new GetRoleByTokenQuery());
     }
 }

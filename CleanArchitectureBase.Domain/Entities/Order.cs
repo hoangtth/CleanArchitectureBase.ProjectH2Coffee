@@ -13,7 +13,7 @@ namespace CleanArchitectureBase.Domain.Entities
         [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public string Note { get; set; } = string.Empty;
+        public string? Note { get; set; } = string.Empty;
 
         public DateTime CreatedDate { get; set; } = DateTime.Now;
 

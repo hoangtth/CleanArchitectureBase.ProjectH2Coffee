@@ -35,6 +35,11 @@ namespace Infrastructure.Repository
             return _context.Set<T>().Where(expression);
         }
 
+        public async Task<T?> FirstOrDefault(Expression<Func<T, bool>> expression)
+        {
+            return await _context.Set<T>().FirstOrDefaultAsync(expression);
+        }
+
         public async Task<IEnumerable<T>> GetAll()
         {
             return await _context.Set<T>().ToListAsync();

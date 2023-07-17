@@ -36,7 +36,7 @@ namespace CleanArchitectureBase.Domain.Helpers
     public struct JwtConstant
     {
         public const string KeyUserId = @"uid";
-        public const string KeyUsername = @"username";
+        public const string KeyUsername = @"unique_name";
         public const string KeyUserType = @"utp";
         public const string KeyCifCode = @"username";
     }

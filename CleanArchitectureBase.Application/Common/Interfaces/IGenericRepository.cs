@@ -22,5 +22,7 @@ namespace CleanArchitectureBase.Application.Common.Interfaces
         void Remove(T entity);
 
         void RemoveRange(IEnumerable<T> entities);
+
+        Task<T?> FirstOrDefault(Expression<Func <T, bool>> expression);
     }
 }
