@@ -27,6 +27,10 @@ namespace API.Controllers
         [HttpGet("Login")]
         public async Task<LoginQueryResponseModel> Login([FromQuery] LoginQuery query ) => await Mediator.Send(query);
 
+
+        [HttpPost]
+
+
         [HttpGet("GetRoleByToken")]
         public async Task<GetRoleByTokenResponseModel> GetRoleByToken() => await Mediator.Send(new GetRoleByTokenQuery());
     }

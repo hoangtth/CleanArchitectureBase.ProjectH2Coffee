@@ -15,6 +15,8 @@ namespace CleanArchitectureBase.Application.OrderCQRS.Commands.CreateOrder
 
         public string EmployeeName { get; set; }
 
+        public decimal TotalCost { get; set; }
+
         public List<OrderDetailsDto> OrderDetails { get; set; }
     }
 
@@ -25,6 +27,7 @@ namespace CleanArchitectureBase.Application.OrderCQRS.Commands.CreateOrder
         public string ProductImage { get; set; }
 
         public string ProductPrice { get; set; }
+
 
         public int Quantity { get; set; }
     }

@@ -19,6 +19,8 @@ namespace CleanArchitectureBase.Domain.Entities
 
         public string EmployeeName { get; set; }
 
+        public decimal TotalCost { get; set; }
+
         public ICollection<OrderDetails> OrderDetails { get; set; }
     }
 }
