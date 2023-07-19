@@ -1,6 +1,8 @@
 ﻿using CleanArchitectureBase.Application.Common.Models;
+using CleanArchitectureBase.Application.UserCQRS.Commands.ChangePass;
 using CleanArchitectureBase.Application.UserCQRS.Commands.CreateUser;
 using CleanArchitectureBase.Application.UserCQRS.Commands.DeactiveUser;
+using CleanArchitectureBase.Application.UserCQRS.Commands.UpdateProfile;
 using CleanArchitectureBase.Application.UserCQRS.Queries.GetListUsers;
 using CleanArchitectureBase.Application.UserCQRS.Queries.GetRoleByToken;
 using CleanArchitectureBase.Application.UserCQRS.Queries.GetUserDetail;
@@ -28,10 +30,14 @@ namespace API.Controllers
         public async Task<LoginQueryResponseModel> Login([FromQuery] LoginQuery query ) => await Mediator.Send(query);
 
 
-        [HttpPost]
-
+        [HttpPost("ChangePass")]
+        public async Task<bool> ChangePass([FromBody] ChangePassCommand command) => await Mediator.Send(command);
 
         [HttpGet("GetRoleByToken")]
         public async Task<GetRoleByTokenResponseModel> GetRoleByToken() => await Mediator.Send(new GetRoleByTokenQuery());
+
+
+        [HttpPost("UpdateProfile")]
+        public async Task<bool> UpdateProfile([FromBody]UpdateProfileCommand command) => await Mediator.Send(command);
     }
 }

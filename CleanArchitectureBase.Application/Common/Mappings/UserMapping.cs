@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CleanArchitectureBase.Application.Common.Models;
 using CleanArchitectureBase.Application.UserCQRS.Commands.CreateUser;
+using CleanArchitectureBase.Application.UserCQRS.Commands.UpdateProfile;
 using CleanArchitectureBase.Application.UserCQRS.Queries.GetListUsers;
 using CleanArchitectureBase.Application.UserCQRS.Queries.GetUserDetail;
 using CleanArchitectureBase.Domain.Entities;
@@ -20,6 +21,7 @@ namespace CleanArchitectureBase.Application.Common.Mappings
             CreateMap<Role, RoleDto>();
             CreateMap<User, GetUserDetailResponseModel>();
             CreateMap<CreateUserCommand, User>();
+            CreateMap<UpdateProfileCommand, User>();
         }
     }
 }

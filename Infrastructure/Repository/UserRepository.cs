@@ -23,6 +23,12 @@ namespace Infrastructure.Repository
             _jwtTokenGenerator = jwtTokenGenerator;
         }
 
+        public async Task<bool> ChangePass(User user)
+        {
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
         public async Task<bool> CheckUsernameExist(string username)
         {
             var user = await _context.Users.Where(x => x.Username == username).FirstOrDefaultAsync();
@@ -69,6 +75,12 @@ namespace Infrastructure.Repository
 
             return token;
 
+        }
+
+        public async Task<bool> UpdateProfile(User user)
+        {
+            await _context.SaveChangesAsync();
+            return true;
         }
 
         public async Task UpdateStatusUser(User user)

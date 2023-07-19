@@ -20,5 +20,9 @@ namespace CleanArchitectureBase.Application.Common.Interfaces
         Task<bool> CheckUsernameExist(string username);
 
         Task<string> Login(string username,string password);
+
+        Task<bool> ChangePass(User user);
+
+        Task<bool> UpdateProfile(User user);
     }
 }
