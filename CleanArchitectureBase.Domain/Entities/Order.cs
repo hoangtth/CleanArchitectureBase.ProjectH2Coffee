@@ -17,6 +17,8 @@ namespace CleanArchitectureBase.Domain.Entities
 
         public DateTime CreatedDate { get; set; } = DateTime.Now;
 
+        public string? CustomerName { get; set; }
+
         public string EmployeeName { get; set; }
 
         public decimal TotalCost { get; set; }
