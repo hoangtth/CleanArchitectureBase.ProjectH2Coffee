@@ -14,5 +14,9 @@ namespace CleanArchitectureBase.Application.Common.Interfaces
         Task AddOrder(Order order);
 
         Task<PaginatedList<Order>> GetAllOrders(int offset, int limit);
+
+        Task<decimal> GetTotalPriceInMonth();
+
+        Task<int> GetTotalOrderInMonth();
     }
 }

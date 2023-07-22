@@ -17,5 +17,7 @@ namespace CleanArchitectureBase.Application.Common.Interfaces
         Task<Product> GetById(int id);
 
         Task<bool> UpdateProduct(Product product);
+
+        Task<int> GetTotalProduct();
     }
 }

@@ -24,5 +24,7 @@ namespace CleanArchitectureBase.Application.Common.Interfaces
         Task<bool> ChangePass(User user);
 
         Task<bool> UpdateProfile(User user);
+
+        Task<int> GetTotalUser();
     }
 }

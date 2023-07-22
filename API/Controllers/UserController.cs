@@ -5,6 +5,7 @@ using CleanArchitectureBase.Application.UserCQRS.Commands.DeactiveUser;
 using CleanArchitectureBase.Application.UserCQRS.Commands.UpdateProfile;
 using CleanArchitectureBase.Application.UserCQRS.Queries.GetListUsers;
 using CleanArchitectureBase.Application.UserCQRS.Queries.GetRoleByToken;
+using CleanArchitectureBase.Application.UserCQRS.Queries.GetTotalUser;
 using CleanArchitectureBase.Application.UserCQRS.Queries.GetUserDetail;
 using CleanArchitectureBase.Application.UserCQRS.Queries.LoginQuery;
 using Microsoft.AspNetCore.Mvc;
@@ -39,5 +40,8 @@ namespace API.Controllers
 
         [HttpPost("UpdateProfile")]
         public async Task<bool> UpdateProfile([FromBody]UpdateProfileCommand command) => await Mediator.Send(command);
+
+        [HttpGet("GetTotalUserActive")]
+        public async Task<GetTotalUserActiveResponse> GetTotalUserActive() => await Mediator.Send(new GetTotalUserActiveQuery());
     }
 }

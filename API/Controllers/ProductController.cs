@@ -5,6 +5,7 @@ using CleanArchitectureBase.Application.ProductCQRS.Command.DeleteProduct;
 using CleanArchitectureBase.Application.ProductCQRS.Command.UpdateProduct;
 using CleanArchitectureBase.Application.ProductCQRS.Queries.GetAllProducts;
 using CleanArchitectureBase.Application.ProductCQRS.Queries.GetProductById;
+using CleanArchitectureBase.Application.ProductCQRS.Queries.GetTotalProductActive;
 using CleanArchitectureBase.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -61,5 +62,8 @@ namespace API.Controllers
         /// <returns></returns>
         [HttpPost("CreateProduct")]
         public async Task<bool> CreateProduct([FromBody] CreateProductCommand command) => await Mediator.Send(command);
+
+        [HttpGet("GetTotalProductActive")]
+        public async Task<GetTotalProductActiveResponseModel> GetTotalProductActive() => await Mediator.Send(new GetTotalProductActiveQuery());
     }
 }

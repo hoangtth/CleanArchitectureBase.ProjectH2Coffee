@@ -42,5 +42,11 @@ namespace Infrastructure.Repository
 
             return true;
         }
+
+        public async Task<int> GetTotalProduct()
+        {
+            var total = await _context.Products.Where(x => x.Status == CleanArchitectureBase.Domain.Helpers.EStatus.Active).CountAsync();
+            return total;
+        }
     }
 }

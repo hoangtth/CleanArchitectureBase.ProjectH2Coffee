@@ -49,6 +49,11 @@ namespace Infrastructure.Repository
             };
         }
 
+        public async Task<int> GetTotalUser()
+        {
+            return await _context.Users.Where(x => x.Status == CleanArchitectureBase.Domain.Helpers.EStatus.Active).CountAsync();
+        }
+
         public async Task<User> GetUserDetail(int id)
         {
             var user = await _context.Users.Include(s => s.Role).Where(x => x.Id == id).SingleOrDefaultAsync();
